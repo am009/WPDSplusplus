@@ -1,0 +1,38 @@
+CA
+  initial_state: 
+  F    : { }
+	0) p --- e_f ---> accept		???{ONE}
+
+-----
+	SaturationProcess::poststar()
+-----
+Popped p --- e_f ---> accept		???{ONE} from workset
+[poststar] Rule0 match found:	<p, e_f> -> <p, n1>	???{ONE}
+Popped p --- n1 ---> accept		???{ONE} from workset
+[poststar] Rule0 match found:	<p, n1> -> <p, n2>	DISABLED
+Popped p --- n2 ---> accept		DISABLED from workset
+[poststar] Rule0 match found:	<p, n2> -> <p, n3>	???{ONE}
+[poststar] Rule0 match found:	<p, n2> -> <p, n4>	ENABLED
+Popped p --- n4 ---> accept		ENABLED from workset
+[poststar] Rule0 match found:	<p, n4> -> <p, x_f>	???{ONE}
+Popped p --- x_f ---> accept		ENABLED from workset
+[poststar] Rule0 match found:	<p, x_f> -> <p, >	???{ONE}
+Popped p --- * ---> accept		ENABLED from workset
+Popped p --- n3 ---> accept		DISABLED from workset
+[poststar] Rule0 match found:	<p, n3> -> <p, x_f>	???{ONE}
+Popped p --- x_f ---> accept		DISABLED from workset
+[poststar] Rule0 match found:	<p, x_f> -> <p, >	???{ONE}
+Popped p --- * ---> accept		DISABLED from workset
+CA
+  initial_state: 
+  F    : { }
+	0) p --- e_f ---> accept		???{ONE}
+	1) p --- n1 ---> accept		???{ONE}
+	2) p --- n2 ---> accept		DISABLED
+	3) p --- n3 ---> accept		DISABLED
+	4) p --- n4 ---> accept		ENABLED
+	5) p --- x_f ---> accept		DISABLED
+	6) p --- * ---> accept		DISABLED
+
+
+Interupts were p --- x_f ---> accept		DISABLED

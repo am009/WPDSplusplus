@@ -1,0 +1,124 @@
+WPDS... 
+WPDS:
+	P ==> { , q }
+  Rules:
+	0)	<q, e_p> -> <q, >	<\S.(S - {NULL}) U {NULL}>
+	1)	<q, n1> -> <q, e_main>	<\S.(S - {(a,1)}) U {NULL}>
+	2)	<q, n8> -> <q, n7>	<\S.(S - {(c,1)}) U {(b,1)(d,1)}>
+	3)	<q, n19> -> <q, n18>	<\S.(S - {(d,1)}) U {(b,1)}>
+	4)	<q, x_p> -> <q, n14>	<\S.(S - {NULL}) U {NULL}>
+	5)	<q, n14> -> <q, n13>	<\S.(S - {(d,1)}) U {(c,1)}>
+	6)	<q, x_p> -> <q, n19>	<\S.(S - {NULL}) U {NULL}>
+	7)	<q, n17> -> <q, n16>	<\S.(S - {NULL}) U {NULL}>
+	8)	<q, x_main> -> <q, n8>	<\S.(S - {NULL}) U {NULL}>
+	9)	<q, n6> -> <q, n5>	<\S.(S - {NULL}) U {NULL}>
+	10)	<q, x_p> -> <q, n9>	<\S.(S - {NULL}) U {NULL}>
+	11)	<q, n10> -> <q, n9>	<\S.(S - {(a,1)}) U {(c,1)}>
+	12)	<q, n15> -> <q, n9>	<\S.(S - {(b,1)}) U {NULL}>
+	13)	<q, n16> -> <q, n15>	<\S.(S - {NULL}) U {(a,1)(d,1)}>
+	14)	<q, n6> -> <q, n4>	<\S.(S - {NULL}) U {NULL}>
+	15)	<q, n9> -> <q, e_p>	<\S.(S - {NULL}) U {NULL}>
+	16)	<q, n3> -> <q, n2>	<\S.(S - {NULL}) U {NULL}>
+	17)	<q, n4> -> <q, n3>	<\S.(S - {(c,1)}) U {NULL}>
+	18)	<q, n5> -> <q, n3>	<\S.(S - {(a,1)}) U {NULL}>
+	19)	<q, n12> -> <q, n11>	<\S.(S - {NULL}) U {NULL}>
+	20)	<q, n2> -> <q, n1>	<\S.(S - {(b,1)}) U {NULL}>
+	21)	<q, n11> -> <q, n10>	<\S.(S - {(a,1)}) U {NULL}>
+	22)	<q, n7> -> <q, x_p n6>	<\S.(S - {NULL}) U {NULL}>
+	23)	<q, n13> -> <q, x_p n12>	<\S.(S - {NULL}) U {NULL}>
+	24)	<q, n18> -> <q, x_p n17>	<\S.(S - {NULL}) U {NULL}>
+	25)	<q, stack_bottom> -> <q, x_main stack_bottom>	<\S.(S - {NULL}) U {NULL}>
+
+-------------------------
+post* of <q, stack_bottom>
+
+Before ...
+CA
+  initial_state: 
+  F    : { accepting_state }
+	0) q --- stack_bottom ---> accepting_state		<\S.(S - {NULL}) U {NULL}>
+
+After ...
+CA
+  initial_state: 
+  F    : { accepting_state }
+	0) q --- stack_bottom ---> accepting_state		<\S.(S - {NULL}) U {NULL}>
+	1) q --- x_main ---> ^q~x_main^		<\S.(S - {NULL}) U {NULL}>
+	2) q --- n8 ---> ^q~x_main^		<\S.(S - {NULL}) U {NULL}>
+	3) q --- n7 ---> ^q~x_main^		<\S.(S - {(c,1)}) U {(b,1)(d,1)}>
+	4) q --- x_p ---> ^q~x_p^		<\S.(S - {NULL}) U {NULL}>
+	5) q --- n9 ---> ^q~x_p^		<\S.(S - {NULL}) U {(a,1)(c,1)(d,1)}>
+	6) q --- n14 ---> ^q~x_p^		<\S.(S - {NULL}) U {NULL}>
+	7) q --- n19 ---> ^q~x_p^		<\S.(S - {NULL}) U {NULL}>
+	8) q --- n18 ---> ^q~x_p^		<\S.(S - {(d,1)}) U {(b,1)}>
+	9) q --- n13 ---> ^q~x_p^		<\S.(S - {(d,1)}) U {(c,1)}>
+	10) q --- e_p ---> ^q~x_p^		<\S.(S - {NULL}) U {(a,1)(c,1)(d,1)}>
+	11) q --- * ---> ^q~x_p^		<\S.(S - {NULL}) U {(a,1)(c,1)(d,1)}>
+	12) q --- n6 ---> ^q~x_main^		<\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+	13) q --- n17 ---> ^q~x_p^		<\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+	14) q --- n12 ---> ^q~x_p^		<\S.(S - {NULL}) U {(a,1)(c,1)(d,1)}>
+	15) q --- n11 ---> ^q~x_p^		<\S.(S - {NULL}) U {(a,1)(c,1)(d,1)}>
+	16) q --- n10 ---> ^q~x_p^		<\S.(S - {(a,1)}) U {(c,1)(d,1)}>
+	17) q --- n16 ---> ^q~x_p^		<\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+	18) q --- n15 ---> ^q~x_p^		<\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+	19) q --- n4 ---> ^q~x_main^		<\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+	20) q --- n5 ---> ^q~x_main^		<\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+	21) q --- n3 ---> ^q~x_main^		<\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+	22) q --- n2 ---> ^q~x_main^		<\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+	23) q --- n1 ---> ^q~x_main^		<\S.(S - {(b,1)}) U {(a,1)(c,1)(d,1)}>
+	24) q --- e_main ---> ^q~x_main^		<\S.(S - {(a,1)(b,1)}) U {(c,1)(d,1)}>
+	25) ^q~x_main^ --- stack_bottom ---> accepting_state		<\S.(S - {NULL}) U {NULL}>
+	26) ^q~x_p^ --- n6 ---> ^q~x_main^		<\S.(S - {(c,1)}) U {(b,1)(d,1)}>
+	27) ^q~x_p^ --- n17 ---> ^q~x_p^		<\S.(S - {(d,1)}) U {(b,1)}>
+	28) ^q~x_p^ --- n12 ---> ^q~x_p^		<\S.(S - {(d,1)}) U {(c,1)}>
+
+
+
+--- Calling path_summary ---
+--- Done path_summary ---
+e_main: <\S.(S - {(a,1)(b,1)}) U {(c,1)(d,1)}>
+
+n1: <\S.(S - {(b,1)}) U {(a,1)(c,1)(d,1)}>
+
+n2: <\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+
+n3: <\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+
+n4: <\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+
+n5: <\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+
+n6: <\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+
+n7: <\S.(S - {(c,1)}) U {(b,1)(d,1)}>
+
+n8: <\S.(S - {NULL}) U {NULL}>
+
+x_main: <\S.(S - {NULL}) U {NULL}>
+
+e_p: <\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+
+n9: <\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+
+n10: <\S.(S - {(a,1)}) U {(b,1)(c,1)(d,1)}>
+
+n11: <\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+
+n12: <\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+
+n13: <\S.(S - {(d,1)}) U {(b,1)(c,1)}>
+
+n14: <\S.(S - {NULL}) U {(b,1)(c,1)(d,1)}>
+
+n15: <\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+
+n16: <\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+
+n17: <\S.(S - {NULL}) U {(a,1)(b,1)(c,1)(d,1)}>
+
+n18: <\S.(S - {(d,1)}) U {(b,1)(c,1)}>
+
+n19: <\S.(S - {NULL}) U {(b,1)(c,1)(d,1)}>
+
+x_p: <\S.(S - {NULL}) U {(b,1)(c,1)(d,1)}>
+

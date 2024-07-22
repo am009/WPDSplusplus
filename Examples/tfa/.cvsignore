@@ -1,0 +1,5 @@
+tfa
+*.d
+*.out.txt
+gmon.out
+

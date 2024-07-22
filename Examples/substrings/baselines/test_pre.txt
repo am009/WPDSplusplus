@@ -1,0 +1,43 @@
+WPDS:
+	P ==> { , p }
+  Rules:
+	0)	<p, A> -> <p, B>	a
+	1)	<p, A> -> <p, A B>	b
+
+*** BEFORE ***
+CA
+  initial_state: 
+  F    : { }
+	0) q2 --- B ---> accept		ONE
+	1) p --- A ---> q1		a
+	2) q1 --- B ---> q2		ONE
+
+-----
+	SaturationProcess::prestar()
+-----
+Popped:
+	 q1 --- B ---> q2		ONE from workset.
+	[prestar] Rule2b match found:	<p, A> -> <p, A B>	b
+Popped:
+	 p --- A ---> q2		ba from workset.
+	[prestar] Rule2a match found:	<p, A> -> <p, A B>	b
+Popped:
+	 p --- A ---> accept		bba from workset.
+	[prestar] Rule2a match found:	<p, A> -> <p, A B>	b
+Popped:
+	 p --- A ---> q1		a from workset.
+	[prestar] Rule2a match found:	<p, A> -> <p, A B>	b
+Popped:
+	 q2 --- B ---> accept		ONE from workset.
+	[prestar] Rule2b match found:	<p, A> -> <p, A B>	b
+done prestar!
+*** AFTER  ***
+CA
+  initial_state: 
+  F    : { }
+	0) q2 --- B ---> accept		ONE
+	1) p --- A ---> q1		a
+	2) p --- A ---> q2		ba
+	3) p --- A ---> accept		bba
+	4) q1 --- B ---> q2		ONE
+

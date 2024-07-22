@@ -1,0 +1,9 @@
+dlive_var
+duninit_var
+live_var
+test
+uninit_var
+uninit_var.pre.o.post
+duninit_var.pre.o.post
+*.out.txt
+*.d

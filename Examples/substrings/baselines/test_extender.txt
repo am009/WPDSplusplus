@@ -1,0 +1,48 @@
+WPDS:
+	P ==> {  }
+  Rules:
+
+
+*** BEFORE ***
+CA
+  initial_state: 
+  F    : { }
+	0) p --- lambda ---> accept		ONE
+
+-----
+	SaturationProcess::poststar()
+-----
+Popped p --- lambda ---> accept		ONE from workset
+[poststar] Rule0 match found:	<p, lambda> -> <p, A>	a
+Popped p --- A ---> accept		a from workset
+[poststar] Rule0 match found:	<p, A> -> <p, B>	b
+[poststar] Rule2 match found:	<p, A> -> <p, A B>	w
+Popped p --- A ---> ^p~A^		ONE from workset
+[poststar] Rule0 match found:	<p, A> -> <p, B>	b
+[poststar] Rule2 match found:	<p, A> -> <p, A B>	w
+Popped p --- B ---> ^p~A^		b from workset
+[poststar] Rule0 match found:	<p, B> -> <p, C>	c
+Popped p --- C ---> ^p~A^		bc from workset
+[poststar] Rule0 match found:	<p, C> -> <p, D>	d
+Popped p --- D ---> ^p~A^		bcd from workset
+Popped p --- B ---> accept		ab from workset
+[poststar] Rule0 match found:	<p, B> -> <p, C>	c
+Popped p --- C ---> accept		abc from workset
+[poststar] Rule0 match found:	<p, C> -> <p, D>	d
+Popped p --- D ---> accept		abcd from workset
+*** AFTER  ***
+CA
+  initial_state: 
+  F    : { }
+	0) p --- lambda ---> accept		ONE
+	1) p --- A ---> accept		a
+	2) p --- B ---> accept		ab
+	3) p --- A ---> ^p~A^		ONE
+	4) p --- B ---> ^p~A^		b
+	5) p --- C ---> ^p~A^		bc
+	6) p --- D ---> ^p~A^		bcd
+	7) p --- C ---> accept		abc
+	8) p --- D ---> accept		abcd
+	9) ^p~A^ --- B ---> accept		aw
+	10) ^p~A^ --- B ---> ^p~A^		w
+

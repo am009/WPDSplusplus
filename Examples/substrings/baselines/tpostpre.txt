@@ -1,0 +1,144 @@
+accept's weight is WPDS:
+	P ==> { , p }
+  Rules:
+	0)	<p, lambda> -> <p, A>	a
+	1)	<p, C> -> <p, D>	d
+	2)	<p, B> -> <p, C>	c
+	3)	<p, A> -> <p, B>	b
+	4)	<p, A> -> <p, A B>	w
+
+
+*** BEFORE ***
+CA
+  initial_state: 
+  F    : { }
+	0) p --- lambda ---> accept		ONE
+
+-----
+	SaturationProcess::poststar()
+-----
+Popped p --- lambda ---> accept		ONE from workset
+[poststar] Rule0 match found:	<p, lambda> -> <p, A>	a
+Popped p --- A ---> accept		a from workset
+[poststar] Rule0 match found:	<p, A> -> <p, B>	b
+[poststar] Rule2 match found:	<p, A> -> <p, A B>	w
+Popped p --- A ---> ^p~A^		ONE from workset
+[poststar] Rule0 match found:	<p, A> -> <p, B>	b
+[poststar] Rule2 match found:	<p, A> -> <p, A B>	w
+Popped p --- B ---> ^p~A^		b from workset
+[poststar] Rule0 match found:	<p, B> -> <p, C>	c
+Popped p --- C ---> ^p~A^		bc from workset
+[poststar] Rule0 match found:	<p, C> -> <p, D>	d
+Popped p --- D ---> ^p~A^		bcd from workset
+Popped p --- B ---> accept		ab from workset
+[poststar] Rule0 match found:	<p, B> -> <p, C>	c
+Popped p --- C ---> accept		abc from workset
+[poststar] Rule0 match found:	<p, C> -> <p, D>	d
+Popped p --- D ---> accept		abcd from workset
+*** AFTER  ***
+CA
+  initial_state: 
+  F    : { }
+	0) p --- lambda ---> accept		ONE
+	1) p --- A ---> accept		a
+	2) p --- B ---> accept		ab
+	3) p --- A ---> ^p~A^		ONE
+	4) p --- B ---> ^p~A^		b
+	5) p --- C ---> ^p~A^		bc
+	6) p --- D ---> ^p~A^		bcd
+	7) p --- C ---> accept		abc
+	8) p --- D ---> accept		abcd
+	9) ^p~A^ --- B ---> accept		aw
+	10) ^p~A^ --- B ---> ^p~A^		w
+
+-----
+	SaturationProcess::prestar()
+-----
+Popped:
+	 ^p~A^ --- B ---> ^p~A^		w from workset.
+	[prestar] Rule2b match found:	<p', x'> -> <p', x B>	ONE
+	[prestar] Rule2b match found:	<p', x''> -> <p', x' B>	ONE
+Popped:
+	 ^p~A^ --- B ---> accept		aw from workset.
+	[prestar] Rule2b match found:	<p', x'> -> <p', x B>	ONE
+	[prestar] Rule2b match found:	<p', x''> -> <p', x' B>	ONE
+Popped:
+	 p --- D ---> accept		abcd from workset.
+Popped:
+	 p --- C ---> accept		abc from workset.
+Popped:
+	 p --- D ---> ^p~A^		bcd from workset.
+Popped:
+	 p --- C ---> ^p~A^		bc from workset.
+Popped:
+	 p --- B ---> ^p~A^		b from workset.
+	[prestar] Rule2b match found:	<p', x'> -> <p', x B>	ONE
+	[prestar] Rule2b match found:	<p', x''> -> <p', x' B>	ONE
+Popped:
+	 p --- A ---> ^p~A^		ONE from workset.
+	[prestar] Rule1 match found:	<p', x> -> <p, A>	ONE
+Popped:
+	 p' --- x ---> ^p~A^		ONE from workset.
+	[prestar] Rule2a match found:	<p', x'> -> <p', x B>	ONE
+Popped:
+	 p' --- x' ---> ^p~A^		w from workset.
+	[prestar] Rule2a match found:	<p', x''> -> <p', x' B>	ONE
+Popped:
+	 p' --- x'' ---> ^p~A^		ww from workset.
+Popped:
+	 p' --- x'' ---> accept		aww from workset.
+Popped:
+	 p' --- x' ---> accept		aw from workset.
+	[prestar] Rule2a match found:	<p', x''> -> <p', x' B>	ONE
+Popped:
+	 p --- B ---> accept		ab from workset.
+	[prestar] Rule2b match found:	<p', x'> -> <p', x B>	ONE
+	[prestar] Rule2b match found:	<p', x''> -> <p', x' B>	ONE
+Popped:
+	 p --- A ---> accept		a from workset.
+	[prestar] Rule1 match found:	<p', x> -> <p, A>	ONE
+Popped:
+	 p' --- x ---> accept		a from workset.
+	[prestar] Rule2a match found:	<p', x'> -> <p', x B>	ONE
+Popped:
+	 p --- lambda ---> accept		ONE from workset.
+
+
+ AFTER PRESTAR ON WPDS2
+CA
+  initial_state: 
+  F    : { }
+	0) p --- lambda ---> accept		ONE
+	1) p --- A ---> accept		a
+	2) p --- B ---> accept		ab
+	3) p --- A ---> ^p~A^		ONE
+	4) p --- B ---> ^p~A^		b
+	5) p --- C ---> ^p~A^		bc
+	6) p --- D ---> ^p~A^		bcd
+	7) p --- C ---> accept		abc
+	8) p --- D ---> accept		abcd
+	9) ^p~A^ --- B ---> accept		aw
+	10) ^p~A^ --- B ---> ^p~A^		w
+	11) p' --- x ---> ^p~A^		ONE
+	12) p' --- x' ---> accept		aw
+	13) p' --- x' ---> ^p~A^		w
+	14) p' --- x'' ---> accept		aww
+	15) p' --- x'' ---> ^p~A^		ww
+	16) p' --- x ---> accept		a
+
+p' --- x'' ---> accept		aww
+Calling path_summary...
+	 matched p --- B ---> accept		ab
+		p has weight 
+	 matched ^p~A^ --- B ---> accept		aw
+		^p~A^ has weight 
+	 matched p --- B ---> ^p~A^		b
+		p has weight ab
+	 matched ^p~A^ --- B ---> ^p~A^		w
+		^p~A^ has weight aw
+	 matched p --- B ---> ^p~A^		b
+		p has weight 
+	 matched ^p~A^ --- B ---> ^p~A^		w
+		^p~A^ has weight 
+accept's weight is ONE
+p's weight is 

@@ -1,0 +1,17 @@
+#  Hey Emacs!  This is a -*- makefile -*-
+# This makefile is included by Makefiles in the subdirectories.
+#
+.PHONY: baselines
+baselines: $(BINARIES)
+	for i in $(BINARIES); do \
+	    ./$$i >baselines/$$i.txt; \
+	done
+
+.PHONY: check
+check: $(BINARIES)
+	@for i in $(BINARIES); do \
+	    echo Checking "$$i...";  \
+	    ./$$i >$$i.out.txt && diff $$i.out.txt baselines/$$i.txt; \
+	    if test $$? -ne 0 ; then exit 1; fi \
+	done
+

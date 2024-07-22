@@ -1,0 +1,9 @@
+# For use at Grammatech
+
+CXXEXTRA = -DWITNESS_TRACE
+ifeq ($(PI_PREADD_BUILD),)
+# With GRAMMATECH, preadd does not work correctly
+  CXXEXTRA += -DGRAMMATECH
+endif
+
+include Makefile

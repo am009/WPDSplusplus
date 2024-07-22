@@ -1,0 +1,42 @@
+WPDS:
+	P ==> { , p }
+  Rules:
+	0)	<p, n9> -> <p, >	ONE
+	1)	<p, n5> -> <p, >	ONE
+	2)	<p, n6> -> <p, n7>	ONE
+	3)	<p, n2> -> <p, n4>	ONE
+	4)	<p, n3> -> <p, n4>	ONE
+	5)	<p, n7> -> <p, n8>	ONE
+	6)	<p, n1> -> <p, n3>	ONE
+	7)	<p, n8> -> <p, n9>	ONE
+	8)	<p, n1> -> <p, n2>	ONE
+	9)	<p, n0> -> <p, n1>	ONE
+	10)	<p, n4> -> <p, n6 n5>	ONE
+
+BEFORE
+CA
+  initial_state: p
+  F    : { accept }
+	0) p --- n0 ---> accept		ONE
+
+
+AFTER
+CA
+  initial_state: p
+  F    : { accept }
+	0) p --- n0 ---> accept		ONE
+	1) p --- n1 ---> accept		ONE
+	2) p --- n2 ---> accept		ONE
+	3) p --- n3 ---> accept		ONE
+	4) p --- n4 ---> accept		ONE
+	5) p --- n6 ---> ^p~n6^		ONE
+	6) p --- n7 ---> ^p~n6^		ONE
+	7) p --- n8 ---> ^p~n6^		ONE
+	8) p --- n9 ---> ^p~n6^		ONE
+	9) p --- * ---> ^p~n6^		ONE
+	10) p --- n5 ---> accept		ONE
+	11) p --- * ---> accept		ONE
+	12) ^p~n6^ --- n5 ---> accept		ONE
+
+Weight on state "p": ONE
+Result of reglang_query: ONE

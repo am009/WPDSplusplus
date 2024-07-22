@@ -1,0 +1,30 @@
+WPDS:
+	P ==> { , i3, i2, b, i1, p, a }
+  Rules:
+	0)	<b, deref> -> <i2, >	PA{ i = 1 }
+	1)	<b, deref> -> <i3, >	PA{ i = 1 }
+	2)	<a, deref> -> <i1, >	PA{ i = 1 }
+	3)	<p, deref> -> <b, >	PA{ i = 1 }
+  Schemas:
+	0)	<[p, deref] deref> -> <a, deref>	PA{ i = 4 }
+
+RS1 generated	<b, deref> -> <a, deref>	PA{ i = 4 }
+WPDS:
+	P ==> { , i3, i2, b, i1, p, a }
+  Rules:
+	0)	<b, deref> -> <i2, >	PA{ i = 1 }
+	1)	<b, deref> -> <i3, >	PA{ i = 1 }
+	2)	<a, deref> -> <i1, >	PA{ i = 1 }
+	3)	<p, deref> -> <b, >	PA{ i = 1 }
+  Schemas:
+	0)	<[p, deref] deref> -> <a, deref>	PA{ i = 4 }
+
+CA
+  initial_state: 
+  F    : { }
+	0) p --- deref ---> b		PA{ i = 1 }
+	1) b --- deref ---> i2		PA{ i = 1 }
+	2) b --- deref ---> i3		PA{ i = 1 }
+	3) b --- deref ---> i1		PA{ i = 1 }
+	4) a --- deref ---> i1		PA{ i = 1 }
+

@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WPDS", "WPDS.vcproj", "{973FBCFB-000B-4A54-90C5-B0FB3999B11F}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Purify = Purify
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{973FBCFB-000B-4A54-90C5-B0FB3999B11F}.Debug.ActiveCfg = Debug|Win32
+		{973FBCFB-000B-4A54-90C5-B0FB3999B11F}.Debug.Build.0 = Debug|Win32
+		{973FBCFB-000B-4A54-90C5-B0FB3999B11F}.Purify.ActiveCfg = Purify|Win32
+		{973FBCFB-000B-4A54-90C5-B0FB3999B11F}.Purify.Build.0 = Purify|Win32
+		{973FBCFB-000B-4A54-90C5-B0FB3999B11F}.Release.ActiveCfg = Release|Win32
+		{973FBCFB-000B-4A54-90C5-B0FB3999B11F}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

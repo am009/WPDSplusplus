@@ -1,0 +1,238 @@
+# Doxyfile 1.4.1
+
+# This file describes the settings to be used by the documentation system
+# doxygen (www.doxygen.org) for a project
+#
+# ********************************************************************
+# GT: This file specifies per project settings.  It is appended to a
+# shared Doxyfile called Doxyfile.shared that specifies defaults for
+# all GT projects.  The only tags that must appear in this file are
+# OUTPUT_DIRECTORY, GT_LEGACY, LINKS_AGAINST and PROJECT_NAME.  I have
+# included tags in the template that I thought people would be most
+# likely to change -- feel free to add more.
+#
+# Try to use relative paths so everyone can use the same Doxyfile.
+# Paths are relative to the location of this file.
+# ********************************************************************
+#
+# All text after a hash (#) is considered a comment and will be ignored
+# The format is:
+#       TAG = value [value, ...]
+# For lists items can also be appended using:
+#       TAG += value [value, ...]
+# Values that contain spaces should be placed between quotes (" ")
+
+#---------------------------------------------------------------------------
+# Project related configuration options
+#---------------------------------------------------------------------------
+
+# The PROJECT_NAME tag is a single word (or a sequence of words surrounded 
+# by quotes) that should identify the project.
+#
+# GT: NO SPACES IN THE NAME.  It must be an acceptable file name.
+
+PROJECT_NAME           = wpds++
+
+# The PROJECT_NUMBER tag can be used to enter a project or revision number. 
+# This could be handy for archiving the generated documentation or 
+# if some version control system is used.
+
+PROJECT_NUMBER         =
+
+# The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) 
+# base path where the generated documentation will be put. 
+# If a relative path is entered, it will be relative to the location 
+# where doxygen was started. If left blank the current directory will be used.
+#
+# GT: Try to use relative paths so everyone can use the same Doxyfile.
+#     Paths are relative to the location of this file.
+
+OUTPUT_DIRECTORY       = dox
+
+# Support for GrammaTech legacy style comments?
+# YES | NO
+
+GT_LEGACY              = NO
+
+# GT: Names of other projects that this one links against.  This is
+# not a real doxygen tag, but gets tranlated into the "TAGFILES" tag.
+# These names should be as they appear in their own PROJECT_NAME tags.
+# For example: 
+# LINKS_AGAINST          = stk codesurfer edgcp
+
+LINKS_AGAINST          = 
+
+# The INPUT tag can be used to specify the files and/or directories that contain 
+# documented source files. You may enter file names like "myfile.cpp" or 
+# directories like "/usr/src/myproject". Separate the files or directories 
+# with spaces.
+#
+# GT: Try to use relative paths so everyone can use the same Doxyfile.
+#     Paths are relative to the location of this file.
+
+INPUT                  = .
+
+# The RECURSIVE tag can be used to turn specify whether or not subdirectories 
+# should be searched for input files as well. Possible values are YES and NO. 
+# If left blank NO is used.
+
+RECURSIVE              = YES
+
+# The EXCLUDE tag can be used to specify files and/or directories that should 
+# excluded from the INPUT source files. This way you can easily exclude a 
+# subdirectory from a directory tree whose root is specified with the INPUT tag.
+
+EXCLUDE                = 
+
+# The EXCLUDE_SYMLINKS tag can be used select whether or not files or 
+# directories that are symbolic links (a Unix filesystem feature) are excluded 
+# from the input.
+
+EXCLUDE_SYMLINKS       = YES
+
+# If the value of the INPUT tag contains directories, you can use the 
+# EXCLUDE_PATTERNS tag to specify one or more wildcard patterns to exclude 
+# certain files from those directories.
+
+EXCLUDE_PATTERNS       = */doc/* */dox/* */CVS/* */test/* */tests/* *unit_test* *_test.c */example/* */Examples/* */examples/*
+
+# This tag can be used to specify a number of aliases that acts 
+# as commands in the documentation. An alias has the form "name=value". 
+# For example adding "sideeffect=\par Side Effects:\n" will allow you to 
+# put the command \sideeffect (or @sideeffect) in the documentation, which 
+# will result in a user-defined paragraph with heading "Side Effects:". 
+# You can put \n's in the value part of an alias to insert newlines.
+#
+# GT: If you think all projects would benefit from a new alias
+#     then put it in Doxyfile.shared instead of here.
+
+ALIASES                +=
+
+# Set the OPTIMIZE_OUTPUT_FOR_C tag to YES if your project consists of C 
+# sources only. Doxygen will then generate output that is more tailored for C. 
+# For instance, some of the names that are used will be different. The list 
+# of all members will be omitted, etc.
+
+OPTIMIZE_OUTPUT_FOR_C  = NO
+
+# Set the OPTIMIZE_OUTPUT_JAVA tag to YES if your project consists of Java sources 
+# only. Doxygen will then generate output that is more tailored for Java. 
+# For instance, namespaces will be presented as packages, qualified scopes 
+# will look different, etc.
+
+OPTIMIZE_OUTPUT_JAVA   = NO
+
+# If the ALPHABETICAL_INDEX tag is set to YES, an alphabetical index 
+# of all compounds will be generated. Enable this if the project 
+# contains a lot of classes, structs, unions or interfaces.
+
+ALPHABETICAL_INDEX     = NO
+
+#---------------------------------------------------------------------------
+# Build related configuration options
+#---------------------------------------------------------------------------
+
+# If the EXTRACT_ALL tag is set to YES doxygen will assume all entities in 
+# documentation are documented, even if no documentation was available. 
+# Private class members and static file members will be hidden unless 
+# the EXTRACT_PRIVATE and EXTRACT_STATIC tags are set to YES
+
+EXTRACT_ALL            = YES
+
+# If the EXTRACT_STATIC tag is set to YES all static members of a file 
+# will be included in the documentation.
+
+EXTRACT_STATIC         = YES
+
+# If the EXTRACT_LOCAL_CLASSES tag is set to YES classes (and structs) 
+# defined locally in source files will be included in the documentation. 
+# If set to NO only classes defined in header files are included.
+
+EXTRACT_LOCAL_CLASSES  = YES
+
+# This flag is only useful for Objective-C code. When set to YES local 
+# methods, which are defined in the implementation section but not in 
+# the interface are included in the documentation. 
+# If set to NO (the default) only methods in the interface are included.
+
+EXTRACT_LOCAL_METHODS  = NO
+
+# If the HIDE_UNDOC_MEMBERS tag is set to YES, Doxygen will hide all 
+# undocumented members of documented classes, files or namespaces. 
+# If set to NO (the default) these members will be included in the 
+# various overviews, but no documentation section is generated. 
+# This option has no effect if EXTRACT_ALL is enabled.
+
+HIDE_UNDOC_MEMBERS     = NO
+
+# If the HIDE_UNDOC_CLASSES tag is set to YES, Doxygen will hide all 
+# undocumented classes that are normally visible in the class hierarchy. 
+# If set to NO (the default) these classes will be included in the various 
+# overviews. This option has no effect if EXTRACT_ALL is enabled.
+
+HIDE_UNDOC_CLASSES     = NO
+
+# If the HIDE_FRIEND_COMPOUNDS tag is set to YES, Doxygen will hide all 
+# friend (class|struct|union) declarations. 
+# If set to NO (the default) these declarations will be included in the 
+# documentation.
+
+HIDE_FRIEND_COMPOUNDS  = NO
+
+# If the HIDE_IN_BODY_DOCS tag is set to YES, Doxygen will hide any 
+# documentation blocks found inside the body of a function. 
+# If set to NO (the default) these blocks will be appended to the 
+# function's detailed documentation block.
+
+HIDE_IN_BODY_DOCS      = NO
+
+# The INTERNAL_DOCS tag determines if documentation 
+# that is typed after a \internal command is included. If the tag is set 
+# to NO (the default) then the documentation will be excluded. 
+# Set it to YES to include the internal documentation.
+
+INTERNAL_DOCS          = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to the preprocessor   
+#---------------------------------------------------------------------------
+
+# If the ENABLE_PREPROCESSING tag is set to YES (the default) Doxygen will 
+# evaluate all C-preprocessor directives found in the sources and include 
+# files.
+
+ENABLE_PREPROCESSING   = YES
+
+# If the MACRO_EXPANSION tag is set to YES Doxygen will expand all macro 
+# names in the source code. If set to NO (the default) only conditional 
+# compilation will be performed. Macro expansion can be done in a controlled 
+# way by setting EXPAND_ONLY_PREDEF to YES.
+
+MACRO_EXPANSION        = YES
+
+# If the EXPAND_ONLY_PREDEF and MACRO_EXPANSION tags are both set to YES 
+# then the macro expansion is limited to the macros specified with the 
+# PREDEFINED and EXPAND_AS_PREDEFINED tags.
+
+EXPAND_ONLY_PREDEF     = YES
+
+# The PREDEFINED tag can be used to specify one or more macro names that 
+# are defined before the preprocessor is started (similar to the -D option of 
+# gcc). The argument of the tag is a list of macros of the form: name 
+# or name=definition (no spaces). If the definition and the = are 
+# omitted =1 is assumed. To prevent a macro definition from being 
+# undefined via #undef or recursively expanded use the := operator 
+# instead of the = operator.
+
+PREDEFINED             += \
+PI_STATS_INST_COUNT= \
+PI_STATS_INST_COUNTm0= \
+PI_STATS_INST_COUNTm= \
+
+
+# If the MACRO_EXPANSION and EXPAND_ONLY_PREDEF tags are set to YES then 
+# this tag can be used to specify a list of macro names that should be expanded. 
+# The macro definition that is found in the sources will be used. 
+# Use the PREDEFINED tag if you want to use a different macro definition.
+
+EXPAND_AS_DEFINED      += 

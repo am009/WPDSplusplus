@@ -1,0 +1,53 @@
+WPDS:
+	P ==> { , 1 }
+  Rules:
+	0)	<1, 777> -> <1, 2>	a
+	1)	<1, 4> -> <1, 5>	d
+	2)	<1, 3> -> <1, 4>	c
+	3)	<1, 2> -> <1, 3>	b
+	4)	<1, 2> -> <1, 2 3>	w
+
+
+*** BEFORE ***
+CA
+  initial_state: 
+  F    : { }
+	0) 1 --- 777 ---> 999		ONE
+
+-----
+	SaturationProcess::poststar()
+-----
+Popped 1 --- 777 ---> 999		ONE from workset
+[poststar] Rule0 match found:	<1, 777> -> <1, 2>	a
+Popped 1 --- 2 ---> 999		a from workset
+[poststar] Rule0 match found:	<1, 2> -> <1, 3>	b
+[poststar] Rule2 match found:	<1, 2> -> <1, 2 3>	w
+Popped 1 --- 2 ---> ^1~2^		ONE from workset
+[poststar] Rule0 match found:	<1, 2> -> <1, 3>	b
+[poststar] Rule2 match found:	<1, 2> -> <1, 2 3>	w
+Popped 1 --- 3 ---> ^1~2^		b from workset
+[poststar] Rule0 match found:	<1, 3> -> <1, 4>	c
+Popped 1 --- 4 ---> ^1~2^		bc from workset
+[poststar] Rule0 match found:	<1, 4> -> <1, 5>	d
+Popped 1 --- 5 ---> ^1~2^		bcd from workset
+Popped 1 --- 3 ---> 999		ab from workset
+[poststar] Rule0 match found:	<1, 3> -> <1, 4>	c
+Popped 1 --- 4 ---> 999		abc from workset
+[poststar] Rule0 match found:	<1, 4> -> <1, 5>	d
+Popped 1 --- 5 ---> 999		abcd from workset
+*** AFTER  ***
+CA
+  initial_state: 
+  F    : { }
+	0) 1 --- 777 ---> 999		ONE
+	1) 1 --- 2 ---> 999		a
+	2) 1 --- 3 ---> 999		ab
+	3) 1 --- 2 ---> ^1~2^		ONE
+	4) 1 --- 3 ---> ^1~2^		b
+	5) 1 --- 4 ---> ^1~2^		bc
+	6) 1 --- 5 ---> ^1~2^		bcd
+	7) 1 --- 4 ---> 999		abc
+	8) 1 --- 5 ---> 999		abcd
+	9) ^1~2^ --- 3 ---> 999		aw
+	10) ^1~2^ --- 3 ---> ^1~2^		w
+
